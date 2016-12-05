@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Boparaiamrit\Permissions\Test;
 
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Spatie\Permission\Exceptions\RoleDoesNotExist;
+use Boparaiamrit\Permissions\Exceptions\PermissionDoesNotExist;
+use Boparaiamrit\Permissions\Exceptions\RoleDoesNotExist;
 
 class GateTest extends TestCase
 {

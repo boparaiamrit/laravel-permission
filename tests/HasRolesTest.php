@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Boparaiamrit\Permissions\Test;
 
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
+use Boparaiamrit\Permissions\Contracts\Role;
+use Boparaiamrit\Permissions\Exceptions\PermissionDoesNotExist;
 
 class HasRolesTest extends TestCase
 {

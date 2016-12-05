@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Traits;
+namespace Boparaiamrit\Permissions\Traits;
 
-use Spatie\Permission\Contracts\Permission;
+use Boparaiamrit\Permissions\Contracts\Permission;
 
 trait HasPermissions
 {
@@ -21,8 +21,9 @@ trait HasPermissions
                 return $this->getStoredPermission($permission);
             })
             ->all();
-
-        $this->permissions()->saveMany($permissions);
+	
+		/** @noinspection PhpUndefinedMethodInspection */
+		$this->permissions()->saveMany($permissions);
 
         $this->forgetCachedPermissions();
 
@@ -38,7 +39,8 @@ trait HasPermissions
      */
     public function syncPermissions(...$permissions)
     {
-        $this->permissions()->detach();
+		/** @noinspection PhpUndefinedMethodInspection */
+		$this->permissions()->detach();
 
         return $this->givePermissionTo($permissions);
     }
@@ -52,7 +54,8 @@ trait HasPermissions
      */
     public function revokePermissionTo($permission)
     {
-        $this->permissions()->detach($this->getStoredPermission($permission));
+		/** @noinspection PhpUndefinedMethodInspection */
+		$this->permissions()->detach($this->getStoredPermission($permission));
 
         $this->forgetCachedPermissions();
 

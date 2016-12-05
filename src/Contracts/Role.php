@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Permission\Contracts;
+namespace Boparaiamrit\Permissions\Contracts;
 
 interface Role
 {

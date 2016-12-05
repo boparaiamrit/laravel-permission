@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Boparaiamrit\Permissions\Test;
 
-use Spatie\Permission\Models\Permission;
+use Boparaiamrit\Permissions\Models\Permission;
 
 class RoleTest extends TestCase
 {

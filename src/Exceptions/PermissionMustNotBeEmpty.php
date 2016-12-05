@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Permission\Exceptions;
+namespace Boparaiamrit\Permissions\Exceptions;
 
 use DomainException;
 

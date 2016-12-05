@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Boparaiamrit\Permissions\Test;
 
-use Spatie\Permission\Contracts\Role;
+use Boparaiamrit\Permissions\Contracts\Role;
 
 class BladeTest extends TestCase
 {

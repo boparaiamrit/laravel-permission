@@ -20,11 +20,11 @@ return [
         | is often just the "Permission" model but you may use whatever you like.
         |
         | The model you want to use as a Permission model needs to implement the
-        | `Spatie\Permission\Contracts\Permission` contract.
+        | `Boparaiamrit\Permissions\Contracts\Permission` contract.
         |
         */
 
-        'permission' => Spatie\Permission\Models\Permission::class,
+        'permission' => Boparaiamrit\Permissions\Models\Permission::class,
 
         /*
         |--------------------------------------------------------------------------
@@ -36,11 +36,11 @@ return [
         | is often just the "Role" model but you may use whatever you like.
         |
         | The model you want to use as a Role model needs to implement the
-        | `Spatie\Permission\Contracts\Role` contract.
+        | `Boparaiamrit\Permissions\Contracts\Role` contract.
         |
         */
 
-        'role' => Spatie\Permission\Models\Role::class,
+        'role' => Boparaiamrit\Permissions\Models\Role::class,
 
     ],
 
@@ -50,7 +50,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'table_names' => [
+    'collections' => [
 
         /*
         |--------------------------------------------------------------------------

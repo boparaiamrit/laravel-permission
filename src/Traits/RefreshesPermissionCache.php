@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Traits;
+namespace Boparaiamrit\Permissions\Traits;
 
-use Spatie\Permission\PermissionRegistrar;
+use Boparaiamrit\Permissions\PermissionRegistrar;
 
 trait RefreshesPermissionCache
 {

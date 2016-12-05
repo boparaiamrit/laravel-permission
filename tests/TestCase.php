@@ -1,29 +1,29 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Boparaiamrit\Permissions\Test;
 
 use File;
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\PermissionServiceProvider;
+use Boparaiamrit\Permissions\Contracts\Permission;
+use Boparaiamrit\Permissions\Contracts\Role;
+use Boparaiamrit\Permissions\PermissionRegistrar;
+use Boparaiamrit\Permissions\PermissionsServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
     /**
-     * @var \Spatie\Permission\Test\User
+     * @var \Boparaiamrit\Permissions\Test\User
      */
     protected $testUser;
 
     /**
-     * @var \Spatie\Permission\Models\Role
+     * @var \Boparaiamrit\Permissions\Models\Role
      */
     protected $testRole;
 
     /**
-     * @var \Spatie\Permission\Models\Permission
+     * @var \Boparaiamrit\Permissions\Models\Permission
      */
     protected $testPermission;
 
@@ -48,7 +48,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            PermissionServiceProvider::class,
+            PermissionsServiceProvider::class,
         ];
     }
 

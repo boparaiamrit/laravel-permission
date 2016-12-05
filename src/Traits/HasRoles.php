@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Permission\Traits;
+namespace Boparaiamrit\Permissions\Traits;
 
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
+use Boparaiamrit\Permissions\Contracts\Permission;
+use Boparaiamrit\Permissions\Contracts\Role;
 
 trait HasRoles
 {
@@ -18,8 +18,8 @@ trait HasRoles
     public function roles()
     {
         return $this->belongsToMany(
-            config('laravel-permission.models.role'),
-            config('laravel-permission.table_names.user_has_roles')
+            config('permissions.models.role'),
+            config('permissions.collections.user_has_roles')
         );
     }
 
@@ -31,17 +31,17 @@ trait HasRoles
     public function permissions()
     {
         return $this->belongsToMany(
-            config('laravel-permission.models.permission'),
-            config('laravel-permission.table_names.user_has_permissions')
+            config('permissions.models.permission'),
+            config('permissions.collections.user_has_permissions')
         );
     }
 
     /**
      * Assign the given role to the user.
      *
-     * @param array|string|\Spatie\Permission\Models\Role ...$roles
+     * @param array|string|\Boparaiamrit\Permissions\Models\Role ...$roles
      *
-     * @return \Spatie\Permission\Contracts\Role
+     * @return \Boparaiamrit\Permissions\Contracts\Role
      */
     public function assignRole(...$roles)
     {

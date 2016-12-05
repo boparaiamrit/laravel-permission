@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\Permission\Test;
+namespace Boparaiamrit\Permissions\Test;
 
 use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\PermissionRegistrar;
+use Boparaiamrit\Permissions\Contracts\Permission;
+use Boparaiamrit\Permissions\Contracts\Role;
+use Boparaiamrit\Permissions\PermissionRegistrar;
 
 class CacheTest extends TestCase
 {
