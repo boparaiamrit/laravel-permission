@@ -23,7 +23,7 @@ class PermissionRegistrar
 	/**
 	 * @var string
 	 */
-	protected $cacheKey = 'spatie.permission.cache';
+	protected $cacheKey = 'permissions.cache';
 	
 	/**
 	 * @param Gate       $gate
