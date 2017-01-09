@@ -2,10 +2,10 @@
 
 namespace Boparaiamrit\Permissions\Test;
 
-use Illuminate\Support\Facades\DB;
 use Boparaiamrit\Permissions\Contracts\Permission;
 use Boparaiamrit\Permissions\Contracts\Role;
 use Boparaiamrit\Permissions\PermissionRegistrar;
+use Illuminate\Support\Facades\DB;
 
 class CacheTest extends TestCase
 {

@@ -2,13 +2,13 @@
 
 namespace Boparaiamrit\Permissions\Test;
 
-use File;
-use Illuminate\Database\Schema\Blueprint;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Boparaiamrit\Permissions\Contracts\Permission;
 use Boparaiamrit\Permissions\Contracts\Role;
 use Boparaiamrit\Permissions\PermissionRegistrar;
 use Boparaiamrit\Permissions\PermissionsServiceProvider;
+use File;
+use Illuminate\Database\Schema\Blueprint;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
@@ -64,11 +64,11 @@ abstract class TestCase extends Orchestra
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
             'driver'   => 'sqlite',
-            'database' => $this->getTempDirectory().'/database.sqlite',
+            'database' => $this->getTempDirectory() . '/database.sqlite',
             'prefix'   => '',
         ]);
 
-        $app['config']->set('view.paths', [__DIR__.'/resources/views']);
+        $app['config']->set('view.paths', [__DIR__ . '/resources/views']);
     }
 
     /**
@@ -78,14 +78,14 @@ abstract class TestCase extends Orchestra
      */
     protected function setUpDatabase($app)
     {
-        file_put_contents($this->getTempDirectory().'/database.sqlite', null);
+        file_put_contents($this->getTempDirectory() . '/database.sqlite', null);
 
         $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
         });
 
-        include_once __DIR__.'/../resources/migrations/create_permission_tables.php.stub';
+        include_once __DIR__ . '/../resources/migrations/create_permission_tables.php.stub';
 
         (new \CreatePermissionTables())->up();
 
@@ -120,7 +120,7 @@ abstract class TestCase extends Orchestra
      */
     public function getTempDirectory($suffix = '')
     {
-        return __DIR__.'/temp'.($suffix == '' ? '' : '/'.$suffix);
+        return __DIR__ . '/temp' . ($suffix == '' ? '' : '/' . $suffix);
     }
 
     /**

@@ -1,5 +1,5 @@
 @hasrole($role)
 has role
 @else
-does not have role
-@endhasrole
+    does not have role
+    @endhasrole
