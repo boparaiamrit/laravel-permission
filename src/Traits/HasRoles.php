@@ -26,6 +26,23 @@ trait HasRoles
         );
     }
 
+    public function __get($key)
+    {
+        if ($key == 'roles') {
+            if (auth()->check()) {
+                $key = 'roles_' . auth()->user()->getAuthIdentifier();
+
+                return app('cache.store')->remember($key, 1440, function () {
+                    return $this->roles()->getResults();
+                });
+            } else {
+                return [];
+            }
+        }
+
+        return $this->getAttribute($key);
+    }
+
     /**
      * A user may have multiple direct permissions.
      *
