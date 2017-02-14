@@ -8,6 +8,13 @@ use Boparaiamrit\Permissions\Exceptions\PermissionDoesNotExist;
 use Boparaiamrit\Permissions\Traits\RefreshesPermissionCache;
 use Jenssegers\Mongodb\Eloquent\Model;
 
+/**
+ * @property string name
+ * @property string label
+ * @property bool   default
+ *
+ * @method static Model firstOrNew($attributes)
+ */
 class Permission extends Model implements PermissionContract
 {
     use RefreshesPermissionCache;
@@ -40,7 +47,9 @@ class Permission extends Model implements PermissionContract
     {
         return $this->belongsToMany(
             config('permissions.models.role'),
-            config('permissions.collections.role_has_permissions')
+            config('permissions.collections.role_has_permissions'),
+            'permission_ids',
+            'role_ids'
         );
     }
 
@@ -53,7 +62,9 @@ class Permission extends Model implements PermissionContract
     {
         return $this->belongsToMany(
             config('auth.model') ?: config('auth.providers.users.model'),
-            config('permissions.collections.user_has_permissions')
+            config('permissions.collections.user_has_permissions'),
+            'permission_ids',
+            'user_ids'
         );
     }
 

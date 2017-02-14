@@ -22,25 +22,9 @@ trait HasRoles
             config('permissions.models.role'),
             config('permissions.collections.user_has_roles'),
             'user_ids',
-            'role_ids'
+            'role_ids',
+            'roles'
         );
-    }
-
-    public function __get($key)
-    {
-        if ($key == 'roles') {
-            if (auth()->check()) {
-                $key = 'roles_' . auth()->user()->getAuthIdentifier();
-
-                return app('cache.store')->remember($key, 1440, function () {
-                    return $this->roles()->getResults();
-                });
-            } else {
-                return [];
-            }
-        }
-
-        return $this->getAttribute($key);
     }
 
     /**
@@ -54,7 +38,8 @@ trait HasRoles
             config('permissions.models.permission'),
             config('permissions.collections.user_has_permissions'),
             'user_ids',
-            'permission_ids'
+            'permission_ids',
+            'permissions'
         );
     }
 

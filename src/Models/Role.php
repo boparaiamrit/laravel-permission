@@ -8,9 +8,15 @@ use Boparaiamrit\Permissions\Exceptions\RoleDoesNotExist;
 use Boparaiamrit\Permissions\Traits\HasPermissions;
 use Boparaiamrit\Permissions\Traits\RefreshesPermissionCache;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Query\Builder;
 
 /**
- * @property mixed permissions
+ * @property string name
+ * @property string label
+ * @property bool   default
+ *
+ * @method static Model firstOrNew($attributes)
+ * @method static Builder where($column, $operator = null, $value = null, $boolean = 'and')
  */
 class Role extends Model implements RoleContract
 {
@@ -45,7 +51,9 @@ class Role extends Model implements RoleContract
     {
         return $this->belongsToMany(
             config('permissions.models.permission'),
-            config('permissions.collections.role_has_permissions')
+            config('permissions.collections.role_has_permissions'),
+            'role_ids',
+            'permission_ids'
         );
     }
 
@@ -58,7 +66,9 @@ class Role extends Model implements RoleContract
     {
         return $this->belongsToMany(
             config('auth.model') ?: config('auth.providers.users.model'),
-            config('permissions.collections.user_has_roles')
+            config('permissions.collections.user_has_roles'),
+            'role_ids',
+            'user_ids'
         );
     }
 
