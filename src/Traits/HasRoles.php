@@ -24,7 +24,7 @@ trait HasRoles
             'user_ids',
             'role_ids',
             'roles'
-        );
+        )->select(['_id', 'name']);
     }
 
     /**
@@ -40,7 +40,7 @@ trait HasRoles
             'user_ids',
             'permission_ids',
             'permissions'
-        );
+        )->select(['_id', 'name']);
     }
 
     /**

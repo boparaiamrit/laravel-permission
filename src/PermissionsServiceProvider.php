@@ -29,7 +29,7 @@ class PermissionsServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/permissions.php', 'permissions');
 
         $this->app->singleton('permissions.registrar', function ($app) {
-            $PR = new PermissionRegistrar($app[Gate::class], $app['cache']);
+            $PR = new PermissionRegistrar($app[Gate::class], $app['cache.store']);
             $PR->registerPermissions();
 
             return $PR;
