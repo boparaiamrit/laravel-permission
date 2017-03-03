@@ -94,6 +94,27 @@ class Role extends Model implements RoleContract
     }
 
     /**
+     * Find a role by its name.
+     *
+     * @param string $id
+     *
+     * @throws RoleDoesNotExist
+     *
+     * @return Role
+     */
+    public static function findByID($id)
+    {
+        /** @noinspection PhpUndefinedMethodInspection */
+        $role = static::where('_id', $id)->first();
+
+        if (!$role) {
+            throw new RoleDoesNotExist();
+        }
+
+        return $role;
+    }
+
+    /**
      * Determine if the user may perform the given permission.
      *
      * @param string|Permission $permission

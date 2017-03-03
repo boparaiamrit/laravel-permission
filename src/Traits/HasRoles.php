@@ -5,6 +5,8 @@ namespace Boparaiamrit\Permissions\Traits;
 
 use Boparaiamrit\Permissions\Contracts\Permission;
 use Boparaiamrit\Permissions\Contracts\Role;
+use MongoDB\BSON\ObjectID;
+use MongoDB\Exception\InvalidArgumentException;
 
 trait HasRoles
 {
@@ -227,7 +229,14 @@ trait HasRoles
     protected function getStoredRole($role)
     {
         if (is_string($role)) {
-            return app(Role::class)->findByName($role);
+            try {
+                new ObjectID($role);
+
+                return app(Role::class)->findByID($role);
+            } catch (InvalidArgumentException $E) {
+
+                return app(Role::class)->findByName($role);
+            }
         }
 
         return $role;

@@ -28,6 +28,15 @@ interface Role
     public static function findByName($name);
 
     /**
+     * Find a role by its name.
+     *
+     * @param string $id
+     *
+     * @throws RoleDoesNotExist
+     */
+    public static function findByID($id);
+
+    /**
      * Determine if the user may perform the given permission.
      *
      * @param string|Permission $permission
